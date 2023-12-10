@@ -25,10 +25,10 @@
             //                    | ESC/ALT | LWR | BKSP|   | SPC | RSE  | ENT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &kp R      &kp T            &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BSLH
-&kp LCTRL  &kp A  &kp S  &kp D         &kp F      &kp G            &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C         &kp V      &kp B            &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp LGUI
-                         &mt LALT ESC  &mo LOWER  &kp BACKSPACE    &kp SPACE  &mo RAISE  &kp RET
+&kp TAB    &kp Q  &kp W  &kp E    &kp R      &kp T            &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BSLH
+&kp LCTRL  &kp A  &kp S  &kp D    &kp F      &kp G            &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C    &kp V      &kp B            &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp LGUI
+                         &kp ESC  &mo LOWER  &kp BACKSPACE    &kp SPACE  &mo RAISE  &kp RET
             >;
         };
 
@@ -40,10 +40,10 @@
             //                        | trans | trans | trans|   | LG(SPC)| trans|  LS(RET) |
 
             bindings = <
-&kp ESC    &kp N1      &kp N2      &kp N3      &kp N4     &kp N5       &kp N6    &kp N7    &kp N8         &kp N9       &kp N0        &kp DEL
-&kp SPACE  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(E)  &kp PG_UP    &kp LEFT  &kp DOWN  &kp UP         &kp RIGHT    &kp LS(SEMI)  &kp LS(SQT)
-&kp LSHFT  &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)  &kp PG_DN    &kp HOME  &kp END   &kp LS(COMMA)  &kp LS(DOT)  &kp LS(FSLH)  &to DAVINCI
-                                   &trans      &trans     &trans       &trans    &trans    &kp LS(RET)
+&kp ESC    &kp N1      &kp N2      &kp N3      &kp N4     &kp N5       &kp N6    &kp N7        &kp N8          &kp N9       &kp N0        &kp DEL
+&kp SPACE  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(E)  &kp PG_UP    &kp LEFT  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT    &kp LS(SEMI)  &kp LS(SQT)
+&kp LSHFT  &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)  &kp PG_DN    &kp HOME  &kp END       &kp LS(COMMA)   &kp LS(DOT)  &kp LS(FSLH)  &to DAVINCI
+                                   &trans      &trans     &trans       &trans    &trans        &kp LS(RET)
             >;
         };
 
@@ -55,14 +55,14 @@
             //                         |     |       | LC(SPC)|    |     |     |     |
 
             bindings = <
-&kp ESC    &kp EXCL       &kp AT  &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp PIPE
-&kp LCAPS  &trans         &trans  &kp GRAVE  &kp TILDE  &kp C_VOL_UP    &kp PLUS   &kp MINUS  &kp COLON        &kp LBKT  &kp RBKT  &kp PSCRN
-&trans     &kp LC(LS(Z))  &trans  &kp CARET  &trans     &kp C_VOL_DN    &kp UNDER  &kp EQUAL  &kp QMARK        &kp LBRC  &kp RBRC  &to GAME
-                                  &trans     &trans     &kp DEL         &trans     &trans     &trans
+&kp TAB           &kp EXCL       &kp AT  &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp PIPE
+&kp LEFT_CONTROL  &trans         &trans  &kp GRAVE  &kp TILDE  &kp C_VOL_UP    &kp PLUS   &kp MINUS  &kp COLON        &kp LBKT  &kp RBKT  &kp PSCRN
+&kp LEFT_SHIFT    &kp LC(LS(Z))  &trans  &kp CARET  &trans     &kp C_VOL_DN    &kp UNDER  &kp EQUAL  &kp QMARK        &kp LBRC  &kp RBRC  &to GAME
+                                         &trans     &trans     &kp DEL         &trans     &trans     &trans
             >;
         };
 
-        davinci_layer {
+        adjust_layer {
             // ---------------------------------------------------------------------------------------------------------
             // |  ESC   |  F1 |  F2      | F3        |  F4     |   F5   |    | F6   |  F7  |  F8  |  F9  | F10  | F11  | 
             // |  PS    |LC(S)| LC {     | LC }      | LC \    | VOL_UP |    | DEL  |      |      |      |      | F12  |
@@ -70,10 +70,10 @@
             //                           | LALT      | SPACE   |        |    |LC(C) |LC(X) |LC(V) | 
 
             bindings = <
-&kp ESC    &kp F1     &kp F2        &kp F3         &kp F4        &kp F5          &kp F6     &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
-&kp PSCRN  &kp LC(S)  &kp LC(LBRC)  &kp LC(RBRC)   &kp LC(BSLH)  &kp C_VOL_UP    &kp DEL    &kp MINUS  &trans     &trans  &trans   &kp F12
-&trans     &kp LEFT   &kp LS(LEFT)  &kp LS(RIGHT)  &kp RIGHT     &kp C_VOL_DN    &kp LC(Z)  &kp EQUAL  &trans     &trans  &trans   &to DEFAULT
-                                    &kp LALT       &kp SPACE     &trans          &kp LC(C)  &kp LC(X)  &kp LC(V)
+&kp TAB           &kp F1   &kp F2   &kp F3      &kp F4     &kp F5           &kp C_VOLUME_UP    &kp C_BACKLIGHT_TOGGLE  &kp F8     &kp F9                &kp C_BRI_UP          &kp F11
+&kp LEFT_CONTROL  &kp F6   &kp F7   &kp F8      &kp F9     &kp F10          &kp C_VOLUME_DOWN  &kp MINUS               &trans     &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_DEC  &kp F12
+&kp LEFT_SHIFT    &kp F11  &kp F12  &kp LA(F4)  &none      &tog 4           &kp K_MUTE         &kp EQUAL               &trans     &trans                &kp C_RESET           &to DEFAULT
+                                    &kp LALT    &kp SPACE  &kp BACKSPACE    &kp SPACE          &none                   &kp ENTER
             >;
         };
 
@@ -85,10 +85,10 @@
             //                        |  ALT    |  LGUI | SPC |   | BCPC|  =   |  0  |
 
             bindings = <
-&kp ESC        &kp Q  &kp W  &kp E     &kp R               &kp T        &kp KP_MULTIPLY  &kp N7     &kp N8  &kp N9  &kp KP_PLUS   &kp F11
-&mt LCTRL TAB  &kp A  &kp S  &kp D     &kp F               &kp G        &kp KP_DIVIDE    &kp N4     &kp N5  &kp N6  &kp KP_MINUS  &kp RET
-&kp LSHFT      &kp Z  &kp X  &kp C     &kp V               &kp B        &kp DOT          &kp N1     &kp N2  &kp N3  &kp COMMA     &to 0
-                             &kp LALT  &mt LEFT_GUI ENTER  &kp SPACE    &kp BSPC         &kp EQUAL  &kp N0
+&kp TAB           &kp Q  &kp W  &kp E     &kp R          &kp T        &kp Y     &kp U       &kp I      &kp O       &kp P          &kp F11
+&kp LEFT_CONTROL  &kp A  &kp S  &kp D     &kp F          &kp G        &kp H     &kp J       &kp K      &kp L       &kp SEMICOLON  &kp SQT
+&kp LSHFT         &kp Z  &kp X  &kp C     &kp V          &kp B        &kp N     &kp M       &kp COMMA  &kp PERIOD  &kp SLASH      &to 0
+                                &kp LALT  &kp RIGHT_ALT  &kp SPACE    &kp BSPC  &mt LWIN G  &kp ENTER
             >;
         };
     };
