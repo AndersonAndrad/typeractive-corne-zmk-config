@@ -51,6 +51,55 @@
             bindings = <&kp G &kp I &kp T &kp SPACE &kp P &kp U &kp S &kp H &kp SPACE>;
             label = "GIT_PULL_MACRO";
         };
+
+        exit_terminal_macro: exit_terminal_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp E &kp X &kp I &kp T &kp SPACE &kp RET>;
+            label = "EXIT_TERMINAL_MACRO";
+        };
+
+        open_vscode_macro: open_vscode_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp SPACE &kp V &kp I &kp S &kp U &kp A &kp L &kp RET>;
+            label = "OPEN_VSCODE_MACRO";
+        };
+
+        open_terminal_macro: open_terminal_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp SPACE &kp T &kp E &kp R &kp M &kp I &kp N &kp A &kp L>;
+            label = "OPEN_TERMINAL_MACRO";
+        };
+
+        next_desktop_macro: next_desktop_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CONTROL &kp RIGHT>;
+            label = "NEXT_DESKTOP_MACRO";
+        };
+
+        back_desktop_macro: back_desktop_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CONTROL &kp LEFT_ARROW>;
+            label = "BACK_DESKTOP_MACRO";
+        };
+
+        up_desktop_macro: up_desktop_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CONTROL &kp UP_ARROW>;
+            label = "UP_DESKTOP_MACRO";
+        };
+
+        down_desktop_macro: down_desktop_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CONTROL &kp DOWN_ARROW>;
+            label = "DOWN_DESKTOP_MACRO";
+        };
     };
 
     keymap {
@@ -64,10 +113,10 @@
             //                    | ESC/ALT | LWR | BKSP|   | SPC | RSE  | ENT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &kp R      &kp T            &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BSLH
-&kp LCTRL  &kp A  &kp S  &kp D         &kp F      &kp G            &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C         &kp V      &kp B            &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp LALT
-                         &kp LEFT_WIN  &mo LOWER  &kp BACKSPACE    &kp SPACE  &mo RAISE  &kp RET
+&kp TAB    &kp Q  &kp W  &kp E         &kp R  &kp T        &kp Y       &kp U  &kp I      &kp O    &kp P     &kp BSLH
+&kp LCTRL  &kp A  &kp S  &kp D         &kp F  &kp G        &kp H       &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C         &kp V  &kp B        &kp N       &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp LALT
+                         &kp LEFT_WIN  &mo 1  &kp SPACE    &kp DELETE  &mo 2  &kp RET
             >;
         };
 
@@ -79,10 +128,10 @@
             //                        | trans | trans | trans|   | LG(SPC)| trans|  LS(RET) |
 
             bindings = <
-&kp ESC    &kp N1      &kp N2      &kp N3      &kp N4     &kp N5       &kp N6    &kp N7        &kp N8          &kp N9       &kp N0        &kp DEL
-&kp SPACE  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(E)  &kp PG_UP    &kp LEFT  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT    &kp LS(SEMI)  &kp LS(SQT)
-&kp LSHFT  &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)  &kp PG_DN    &kp HOME  &kp END       &kp LS(COMMA)   &kp LS(DOT)  &kp LS(FSLH)  &to DAVINCI
-                                   &trans      &trans     &trans       &trans    &trans        &kp LS(RET)
+&kp ESC    &kp N1               &kp N2               &kp N3             &kp N4               &kp N5       &kp N6      &kp N7        &kp N8               &kp N9       &kp N0        &kp DEL
+&kp SPACE  &back_desktop_macro  &down_desktop_macro  &up_desktop_macro  &next_desktop_macro  &kp PG_UP    &kp LEFT    &kp UP_ARROW  &kp DOWN_ARROW       &kp RIGHT    &kp LS(SEMI)  &kp LS(SQT)
+&kp LSHFT  &kp LC(Z)            &kp K_CUT            &kp K_COPY         &kp K_PASTE          &kp PG_DN    &kp HOME    &kp END       &kp LS(PRINTSCREEN)  &kp LS(DOT)  &kp LS(FSLH)  &to 3
+                                                     &trans             &trans               &trans       &kp DELETE  &trans        &kp LS(RET)
             >;
         };
 
@@ -94,10 +143,10 @@
             //                         |     |       | LC(SPC)|    |     |     |     |
 
             bindings = <
-&kp TAB           &kp EXCL       &kp AT  &kp HASH   &kp DLLR         &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp PIPE
-&kp LEFT_CONTROL  &trans         &trans  &kp GRAVE  &kp PRINTSCREEN  &kp C_VOL_UP    &kp PLUS   &kp MINUS  &kp COLON        &kp LBKT  &kp RBKT  &kp GRAVE
-&kp LEFT_SHIFT    &kp LC(LS(Z))  &trans  &kp CARET  &trans           &kp C_VOL_DN    &kp UNDER  &kp EQUAL  &kp QMARK        &kp LBRC  &kp RBRC  &kp TILDE
-                                         &trans     &trans           &kp DEL         &trans     &trans     &trans
+&kp TAB           &kp EXCL       &kp AT  &kp HASH   &kp DLLR      &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp PIPE
+&kp LEFT_CONTROL  &trans         &trans  &kp GRAVE  &kp C_VOL_DN  &kp C_VOL_UP    &kp PLUS    &kp MINUS  &kp COLON        &kp LBKT  &kp RBKT  &kp GRAVE
+&kp LEFT_SHIFT    &kp LC(LS(Z))  &trans  &kp CARET  &to 5         &tog 4          &kp UNDER   &kp EQUAL  &kp QMARK        &kp LBRC  &kp RBRC  &kp TILDE
+                                         &trans     &trans        &kp SPACE       &kp DELETE  &trans     &trans
             >;
         };
 
@@ -111,8 +160,17 @@
             bindings = <
 &kp TAB           &kp F1  &kp F2   &kp F3      &kp F4     &kp F5           &kp F6             &kp F7     &kp F8     &kp F9                &kp F10               &kp F11
 &kp LEFT_CONTROL  &kp F6  &kp F7   &kp F8      &kp F9     &kp F10          &kp C_VOLUME_DOWN  &kp MINUS  &trans     &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_DEC  &kp F12
-&kp LEFT_SHIFT    &to 5   &kp F12  &kp LA(F4)  &to 4      &to 5            &kp K_MUTE         &kp EQUAL  &trans     &trans                &kp C_RESET           &to DEFAULT
+&kp LEFT_SHIFT    &to 4   &kp F12  &kp LA(F4)  &to 6      &to 4            &kp K_MUTE         &kp EQUAL  &trans     &trans                &kp C_RESET           &to 0
                                    &kp LALT    &kp SPACE  &kp BACKSPACE    &kp SPACE          &none      &kp ENTER
+            >;
+        };
+
+        programmer_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans           &git_push_macro    &git_upgrade_macro  &trans     &trans  &trans  &open_vscode_macro
+&trans  &trans  &trans  &trans  &trans  &trans           &git_pull_macro    &trans              &trans     &trans  &trans  &open_terminal_macro
+&trans  &trans  &trans  &trans  &trans  &trans           &git_commit_macro  &trans              &trans     &trans  &trans  &trans
+                        &to 0   &trans  &kp BACKSPACE    &trans             &trans              &kp ENTER
             >;
         };
 
@@ -124,19 +182,19 @@
             //                        |  ALT    |  LGUI | SPC |   | BCPC|  =   |  0  |
 
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp E     &kp R          &kp T        &kp Y     &kp U       &kp I      &kp O       &kp P          &kp F11
-&kp LEFT_CONTROL  &kp A  &kp S  &kp D     &kp F          &kp G        &kp H     &kp J       &kp K      &kp L       &kp SEMICOLON  &kp SQT
-&kp LSHFT         &kp Z  &kp X  &kp C     &kp V          &kp B        &kp N     &kp M       &kp COMMA  &kp PERIOD  &kp SLASH      &to 0
-                                &kp LALT  &kp RIGHT_ALT  &kp SPACE    &kp BSPC  &mt LWIN G  &kp ENTER
+&kp TAB           &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y     &kp U       &kp I      &kp O       &kp P          &kp F11
+&kp LEFT_CONTROL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H     &kp J       &kp K      &kp L       &kp SEMICOLON  &kp SQT
+&kp LSHFT         &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M       &kp COMMA  &kp PERIOD  &kp SLASH      &to 0
+                                &kp LALT  &mo 7  &kp SPACE    &kp BSPC  &mt LWIN G  &kp ENTER
             >;
         };
 
-        programmer_layer {
+        sub_layer_gamer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans           &git_push_macro    &git_upgrade_macro  &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans           &git_pull_macro    &trans              &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans           &git_commit_macro  &trans              &trans     &trans  &trans  &trans
-                        &to 0   &trans  &kp BACKSPACE    &trans             &trans              &kp ENTER
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
